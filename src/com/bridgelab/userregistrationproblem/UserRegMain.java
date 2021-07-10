@@ -152,14 +152,14 @@ public class UserRegMain
 	{
 		System.out.print("ENTER PASSWORD : ");
 		String password = scanner.next();
-		boolean isTrue = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
+		boolean isTrue = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
 		if(isTrue == true)
 		{
 			userDetailsObject.setPassword(password);
 		}
 		else
 		{
-			System.err.print("\nWrong Input : Password must be of 8 characters :");
+			System.err.print("\nWrong Input : Password must be of 8 characters, must contain one upper case, one number :");
 			System.out.println();
 			enterPassword();
 		}
