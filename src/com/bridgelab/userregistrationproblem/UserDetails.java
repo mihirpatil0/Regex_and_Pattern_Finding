@@ -10,6 +10,7 @@ public class UserDetails
 {
 	private String firstName;
 	private String lastName;
+	private String emailId;
 
 	public String getFirstName()
 	{
@@ -30,11 +31,21 @@ public class UserDetails
 	{
 		this.lastName = lastName;
 	}
+	
+	public String getEmailId()
+	{
+		return emailId;
+	}
+
+	public void setEmailId(String emailId)
+	{
+		this.emailId = emailId;
+	}
 
 	@Override
 	public String toString()
 	{
-		return "User-Details : [ First-Name = " + firstName + ", Last-Name = " + lastName + " ]";
+		return "User-Details : [ First-Name = " + firstName + ", Last-Name = " + lastName + ", Email-ID = " + emailId + " ]";
 	}
 	
 }
