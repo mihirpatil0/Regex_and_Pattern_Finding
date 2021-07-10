@@ -145,6 +145,8 @@ public class UserRegMain
 	 * using regex.
 	 * must contain 8 characters.
 	 * Should have atleast one UPPER CASE.
+	 * should have atleast one number.
+	 * should have exactly one special character.
 	 * 
 	 * Modification : First commit 10-July-2021.
 	 */
@@ -152,14 +154,14 @@ public class UserRegMain
 	{
 		System.out.print("ENTER PASSWORD : ");
 		String password = scanner.next();
-		boolean isTrue = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
+		boolean isTrue = Pattern.compile("^(?=.*[0-9])(?=.*[@#$%^&+=])(?=.*[a-z])(?=.*[A-Z]).{8,20}$").matcher(password).matches();
 		if(isTrue == true)
 		{
 			userDetailsObject.setPassword(password);
 		}
 		else
 		{
-			System.err.print("\nWrong Input : Password must be of 8 characters, must contain one upper case, one number :");
+			System.err.print("\nWrong Input : Password must be of 8 characters, must contain one upper case, one number, one special character.git : ");
 			System.out.println();
 			enterPassword();
 		}
