@@ -108,6 +108,35 @@ public class UserRegMain
 	}
 	
 	/**
+	 * Name : enterMobileNumber.
+	 * 
+	 * Description : Asking user to enter mobile number.
+	 * 
+	 * Algorithm : Checking if entered mobile number follows defined pattern rules or not.
+	 * using regex.
+	 * example - 91 9987000000
+	 * Rules : country code followed by space and 10 digit number.
+	 * 
+	 * Modification : First commit 10-July-2021.
+	 */
+	public void enterMobileNumber()
+	{
+		System.out.print("ENTER PHONE NUMBER : ");
+		String mobileNumber = scanner.nextLine();
+		boolean isTrue = Pattern.compile("^[0-9]\\d{1}\\s[789]\\d{9}$").matcher(mobileNumber).matches();
+		if(isTrue == true)
+		{
+			userDetailsObject.setMobileNumber(mobileNumber);
+		}
+		else
+		{
+			System.err.print("\nWrong Input : Country code followed by space and 10 digit number :");
+			System.out.println();
+			enterMobileNumber();
+		}
+	}
+	
+	/**
 	 * Name : printAllUserDetails.
 	 * 
 	 * Description : Printing User Details.
@@ -130,6 +159,7 @@ public class UserRegMain
 		userObject.enterFirstName();
 		userObject.enterLastName();
 		userObject.enterEmailId();
+		userObject.enterMobileNumber();
 		userObject.printAllUserDetails();
 	}
 }
